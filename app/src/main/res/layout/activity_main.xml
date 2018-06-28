@@ -8,23 +8,23 @@
 
     <Button
         android:id="@+id/btnCandidato"
-        android:layout_width="200"
-        android:layout_height="100"
-        android:layout_marginTop="92dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:padding="@android:dimen/app_icon_size"
         android:text="Candidato"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnEleitor"
-        android:layout_width="200"
-        android:layout_height="100"
-        android:layout_marginTop="76dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:padding="@android:dimen/app_icon_size"
         android:text="Eleitor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCandidato" />
 </android.support.constraint.ConstraintLayout>
