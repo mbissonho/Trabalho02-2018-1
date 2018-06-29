@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CandidatoListActivity"
+            android:label="@string/title_activity_candidato_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EleitorListActivity"
+            android:label="@string/title_activity_eleitor_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

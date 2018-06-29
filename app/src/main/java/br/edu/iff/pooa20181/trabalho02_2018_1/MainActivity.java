@@ -1,5 +1,6 @@
 package br.edu.iff.pooa20181.trabalho02_2018_1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         this.btnCandidato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Msg","Teste");
+                Intent intent = new Intent(MainActivity.this, CandidatoListActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -32,7 +34,5 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Msg","Teste");
             }
         });
-
-
     }
 }

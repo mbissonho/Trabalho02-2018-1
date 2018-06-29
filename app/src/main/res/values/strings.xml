@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Trabalho02-2018-1</string>
+    <string name="title_activity_candidato_list">CandidatoListActivity</string>
+    <string name="title_activity_eleitor_list">EleitorListActivity</string>
 </resources>

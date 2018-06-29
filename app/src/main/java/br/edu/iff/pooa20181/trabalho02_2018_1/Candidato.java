@@ -4,7 +4,7 @@ public class Candidato {
 
     private String nome;
     private String partido;
-    private int numeroNaUrna;
+    private String numeroNaUrna;
     private String cargo;
     private int numeroDeVotos;
     private String estado;
@@ -30,16 +30,17 @@ public class Candidato {
         this.partido = partido;
     }
 
-    public int getNumeroNaUrna() {
-        return numeroNaUrna;
-    }
-
-    public void setNumeroNaUrna(int numeroNaUrna) {
-        this.numeroNaUrna = numeroNaUrna;
-    }
 
     public String getCargo() {
         return cargo;
+    }
+
+    public String getNumeroNaUrna() {
+        return numeroNaUrna;
+    }
+
+    public void setNumeroNaUrna(String numeroNaUrna) {
+        this.numeroNaUrna = numeroNaUrna;
     }
 
     public void setCargo(String cargo) {

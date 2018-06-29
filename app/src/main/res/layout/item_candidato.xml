@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right">
+
+        <TextView
+            android:id="@+id/lNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Nome"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Title" />
+
+        <TextView
+            android:id="@+id/lNumero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numero"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+        <TextView
+            android:id="@+id/lPartido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Partido" />
+
+        <TextView
+            android:id="@+id/lCargo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cargo" />
+    </LinearLayout>
+</LinearLayout>
