@@ -63,6 +63,8 @@ public class ManageCandidatoActivity extends AppCompatActivity {
 
         }else{
 
+            this.btnDeletar.setEnabled(false);
+            this.btnAlterar.setEnabled(false);
 
         }
 
@@ -84,7 +86,7 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         this.btnDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ManageCandidatoActivity.this,"Não Implementado!", Toast.LENGTH_LONG).show();
+                ManageCandidatoActivity.this.deletar();
             }
         });
 
@@ -109,7 +111,7 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         this.realm.commitTransaction();
         this.realm.close();
 
-        Toast.makeText(this,"Candidato Cadastrado",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Candidato Cadastrado!",Toast.LENGTH_LONG).show();
         this.finish();
 
     }
@@ -123,11 +125,19 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         realm.commitTransaction();
         realm.close();
 
-        Toast.makeText(this,"Candidato Atualizado",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Candidato Atualizado!",Toast.LENGTH_LONG).show();
         this.finish();
     }
 
+    private void deletar(){
+        realm.beginTransaction();
+        this.candidato.deleteFromRealm();
+        realm.commitTransaction();
+        realm.close();
 
+        Toast.makeText(this,"Candidato Excluído!",Toast.LENGTH_LONG).show();
+        this.finish();
+    }
 
     private void populate(Candidato candidato){
 
