@@ -49,6 +49,18 @@ public class ManageCandidatoActivity extends AppCompatActivity {
 
         if(this.id != 0){
 
+            this.btnSalvar.setEnabled(false);
+            this.candidato = realm.where(Candidato.class).equalTo("id",this.id).findFirst();
+
+            this.tNome.setText(this.candidato.getNome());
+            this.tNUrna.setText(this.candidato.getNumeroNaUrna());
+            this.tNVotos.setText(Integer.toString(this.candidato.getNumeroDeVotos()));
+            this.tPartido.setText(this.candidato.getPartido());
+            this.tEstado.setText(this.candidato.getEstado());
+            this.tCargo.setText(this.candidato.getCargo());
+            this.tMunicio.setText(this.candidato.getMunicipio());
+
+
         }else{
 
 
@@ -65,7 +77,7 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         this.btnAlterar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ManageCandidatoActivity.this,"Não Implementado!",Toast.LENGTH_LONG).show();
+                ManageCandidatoActivity.this.alterar();
             }
         });
 
@@ -101,6 +113,21 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         this.finish();
 
     }
+
+    private void alterar(){
+        realm.beginTransaction();
+
+        populate(this.candidato);
+
+        realm.copyToRealm(this.candidato);
+        realm.commitTransaction();
+        realm.close();
+
+        Toast.makeText(this,"Candidato Atualizado",Toast.LENGTH_LONG).show();
+        this.finish();
+    }
+
+
 
     private void populate(Candidato candidato){
 
