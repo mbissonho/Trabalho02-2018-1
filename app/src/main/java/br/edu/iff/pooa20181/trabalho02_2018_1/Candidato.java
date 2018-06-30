@@ -1,7 +1,15 @@
 package br.edu.iff.pooa20181.trabalho02_2018_1;
 
-public class Candidato {
+import java.io.Serializable;
 
+import io.realm.Realm;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Candidato extends RealmObject implements Serializable {
+
+    @PrimaryKey
+    private int id;
     private String nome;
     private String partido;
     private String numeroNaUrna;
@@ -10,8 +18,17 @@ public class Candidato {
     private String estado;
     private String municipio;
 
+
     public Candidato(){
 
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

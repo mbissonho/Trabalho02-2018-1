@@ -1,19 +1,22 @@
 package br.edu.iff.pooa20181.trabalho02_2018_1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+
 public class CandidatoListActivity extends AppCompatActivity implements ClickRecyclerViewListener {
+
+    private Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +25,15 @@ public class CandidatoListActivity extends AppCompatActivity implements ClickRec
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        this.realm = Realm.getDefaultInstance();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(CandidatoListActivity.this, ManageCandidatoActivity.class);
+                intent.putExtra("id",0);
+                startActivity(intent);
             }
         });
     }
@@ -37,117 +43,45 @@ public class CandidatoListActivity extends AppCompatActivity implements ClickRec
         super.onResume();
 
         RecyclerView recyclerView = findViewById(R.id.rvCandidatos);
-        recyclerView.setAdapter(new CandidadoAdapter(this.getCandidatos(),this,this));
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        recyclerView.setAdapter(new CandidadoAdapter(this.getCandidatos(),this,this));
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public List<Candidato> getCandidatos(){
+    public List getCandidatos(){
+       return (List) this.realm.where(Candidato.class).findAll();
 
-        List<Candidato> cadidatos = new ArrayList<Candidato>();
+        //ArrayList<Candidato> candidatos= new ArrayList<Candidato>();
+
+        /*
 
         Candidato c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
+        c.setNome("Doido");
+        c.setCargo("Presidente");
+        c.setNumeroNaUrna("13");
+        c.setPartido("PT");
 
-        cadidatos.add(c);
+        candidatos.add(c);
 
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
+        */
 
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        c = new Candidato();
-        c.setCargo("Prefeito");
-        c.setNome("João Doria");
-        c.setPartido("PSDB");
-        c.setNumeroNaUrna("24");
-
-        cadidatos.add(c);
-
-        return cadidatos;
+        //return candidatos;
     }
-
 
     @Override
     public void onClick(Object object) {
-        Log.d("teste","teste");
+        Candidato c = (Candidato) object;
+        Intent intent = new Intent(CandidatoListActivity.this, ManageCandidatoActivity.class);
+        intent.putExtra("id", c.getId());
+        startActivity(intent);
     }
+
+    @Override
+    public void finish(){
+        super.finish();
+        this.realm.close();
+    }
+
+
 }

@@ -3,6 +3,7 @@
     package="br.edu.iff.pooa20181.trabalho02_2018_1">
 
     <application
+        android:name=".Config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,6 +24,10 @@
         <activity
             android:name=".EleitorListActivity"
             android:label="@string/title_activity_eleitor_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ManageCandidatoActivity"
+            android:label="@string/title_activity_manage_candidato"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -3,4 +3,5 @@
     <string name="title_activity_candidato_list">CandidatoListActivity</string>
     <string name="title_activity_eleitor_list">EleitorListActivity</string>
     <string name="title_activity_eleitor">EleitorActivity</string>
+    <string name="title_activity_manage_candidato">ManageCandidatoActivity</string>
 </resources>

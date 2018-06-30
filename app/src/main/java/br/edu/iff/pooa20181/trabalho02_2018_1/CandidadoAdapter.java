@@ -17,8 +17,8 @@ public class CandidadoAdapter extends RecyclerView.Adapter{
     private static ClickRecyclerViewListener clickRecyclerViewListener;
 
 
-    public CandidadoAdapter(List<Candidato> cadidatos, Context ctx, ClickRecyclerViewListener clickRecyclerViewListener){
-        this.cadidatos = cadidatos;
+    public CandidadoAdapter(List<Candidato> candidatos, Context ctx, ClickRecyclerViewListener clickRecyclerViewListener){
+        this.cadidatos = candidatos;
         this.ctx = ctx;
         this.clickRecyclerViewListener = clickRecyclerViewListener;
     }
