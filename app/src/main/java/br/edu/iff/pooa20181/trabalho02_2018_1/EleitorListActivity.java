@@ -7,8 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class EleitorListActivity extends AppCompatActivity {
-
+public class EleitorListActivity extends AppCompatActivity implements ClickRecyclerViewListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,4 +25,8 @@ public class EleitorListActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onClick(Object object) {
+
+    }
 }
