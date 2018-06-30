@@ -43,9 +43,11 @@ public class EleitorAdapter extends RecyclerView.Adapter{
 
         eleitorHolder.nomeEleitor.setText(eleitor.getNome());
         eleitorHolder.numeroTitulo.setText(eleitor.getNumeroDoTitulo());
-        eleitorHolder.zona.setText(eleitor.getZona());
-        eleitorHolder.secao.setText(eleitor.getSecao());
+        eleitorHolder.zona.setText(Integer.toString(eleitor.getZona()));
+        eleitorHolder.secao.setText(Integer.toString(eleitor.getSecao()));
     }
+
+
 
     @Override
     public int getItemCount() {

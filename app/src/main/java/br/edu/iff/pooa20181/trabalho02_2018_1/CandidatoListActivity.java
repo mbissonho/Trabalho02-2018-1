@@ -54,6 +54,94 @@ public class CandidatoListActivity extends AppCompatActivity implements ClickRec
 
         cadidatos.add(c);
 
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
+        c = new Candidato();
+        c.setCargo("Prefeito");
+        c.setNome("João Doria");
+        c.setPartido("PSDB");
+        c.setNumeroNaUrna("24");
+
+        cadidatos.add(c);
+
         return cadidatos;
     }
 

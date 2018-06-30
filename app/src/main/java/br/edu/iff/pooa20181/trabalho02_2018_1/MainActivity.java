@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         this.btnEleitor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Msg","Teste");
+                Intent intent = new Intent(MainActivity.this, EleitorListActivity.class);
+                startActivity(intent);
             }
         });
     }
