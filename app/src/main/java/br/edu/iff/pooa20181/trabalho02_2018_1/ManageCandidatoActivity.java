@@ -96,7 +96,7 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         }
 
         if(this.verifyEmpty()){
-            Toast.makeText(this,"Preencha todos os campos para cadastrar!",Toast.LENGTH_LONG).show();
+            launchMessage("Preencha todos os campos para cadastrar!");
         }else{
             this.realm.beginTransaction();
 
@@ -109,7 +109,7 @@ public class ManageCandidatoActivity extends AppCompatActivity {
             this.realm.commitTransaction();
             this.realm.close();
 
-            Toast.makeText(this,"Candidato Cadastrado!",Toast.LENGTH_LONG).show();
+            launchMessage("Candidato Cadastrado!");
             this.finish();
         }
 
@@ -118,16 +118,23 @@ public class ManageCandidatoActivity extends AppCompatActivity {
     }
 
     private void alterar(){
-        realm.beginTransaction();
 
-        populate(this.candidato);
+        if(this.verifyEmpty()){
+            launchMessage("Preencha todos os campos para alterar!");
+        }else{
+            realm.beginTransaction();
 
-        realm.copyToRealm(this.candidato);
-        realm.commitTransaction();
-        realm.close();
+            populate(this.candidato);
 
-        Toast.makeText(this,"Candidato Atualizado!",Toast.LENGTH_LONG).show();
-        this.finish();
+            realm.copyToRealm(this.candidato);
+            realm.commitTransaction();
+            realm.close();
+
+            launchMessage("Candidato Alterado!");
+            this.finish();
+        }
+
+
     }
 
     private void deletar(){
@@ -136,7 +143,7 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         realm.commitTransaction();
         realm.close();
 
-        Toast.makeText(this,"Candidato Excluído!",Toast.LENGTH_LONG).show();
+        launchMessage("Candidato Excluído!");
         this.finish();
     }
 
@@ -180,6 +187,10 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    private void launchMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }
