@@ -26,7 +26,6 @@ public class ManageEleitorActivity extends AppCompatActivity {
     private Eleitor eleitor;
     private Realm realm;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,8 +110,6 @@ public class ManageEleitorActivity extends AppCompatActivity {
             this.finish();
         }
 
-
-
     }
 
     private void alterar(){
@@ -185,5 +182,7 @@ public class ManageEleitorActivity extends AppCompatActivity {
 
         return false;
     }
+
+
 
 }
