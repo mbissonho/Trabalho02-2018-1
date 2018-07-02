@@ -1,12 +1,18 @@
 package br.edu.iff.pooa20181.trabalho02_2018_1;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Eleitor {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
+public class Eleitor extends RealmObject implements Serializable {
+
+    @PrimaryKey
+    private int id;
     private String nome;
     private String nomeDaMãe;
-    private Date dataDeNascimento;
+    private String dataDeNascimento;
     private String numeroDoTitulo;
     private int zona;
     private int secao;
@@ -32,11 +38,11 @@ public class Eleitor {
         this.nomeDaMãe = nomeDaMãe;
     }
 
-    public Date getDataDeNascimento() {
+    public String getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
+    public void setDataDeNascimento(String dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 
@@ -70,5 +76,13 @@ public class Eleitor {
 
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

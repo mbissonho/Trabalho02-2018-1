@@ -28,7 +28,16 @@
         <activity
             android:name=".ManageCandidatoActivity"
             android:label="@string/title_activity_manage_candidato"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ManageEleitorActivity"
+            android:label="@string/title_activity_manage_eleitor"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+
     </application>
 
 </manifest>
