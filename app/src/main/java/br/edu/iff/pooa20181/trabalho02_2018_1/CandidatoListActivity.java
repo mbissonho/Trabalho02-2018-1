@@ -51,22 +51,6 @@ public class CandidatoListActivity extends AppCompatActivity implements ClickRec
 
     public List getCandidatos(){
        return (List) this.realm.where(Candidato.class).findAll();
-
-        //ArrayList<Candidato> candidatos= new ArrayList<Candidato>();
-
-        /*
-
-        Candidato c = new Candidato();
-        c.setNome("Doido");
-        c.setCargo("Presidente");
-        c.setNumeroNaUrna("13");
-        c.setPartido("PT");
-
-        candidatos.add(c);
-
-        */
-
-        //return candidatos;
     }
 
     @Override

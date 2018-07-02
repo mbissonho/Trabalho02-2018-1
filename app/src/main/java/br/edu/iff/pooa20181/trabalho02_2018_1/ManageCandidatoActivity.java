@@ -3,6 +3,7 @@ package br.edu.iff.pooa20181.trabalho02_2018_1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IntegerRes;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ public class ManageCandidatoActivity extends AppCompatActivity {
 
     private EditText tNome, tPartido, tNUrna, tCargo, tNVotos, tEstado, tMunicio;
     private Button btnSalvar, btnAlterar, btnDeletar;
+    private ConstraintLayout layout;
 
     private int id;
     private Candidato candidato;
@@ -31,6 +33,8 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_manage_candidato);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        this.layout = findViewById(R.id.candidatoLayout);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -61,10 +65,12 @@ public class ManageCandidatoActivity extends AppCompatActivity {
             this.tMunicio.setText(this.candidato.getMunicipio());
 
 
+
         }else{
 
             this.btnDeletar.setEnabled(false);
             this.btnAlterar.setEnabled(false);
+
 
         }
 
@@ -100,19 +106,25 @@ public class ManageCandidatoActivity extends AppCompatActivity {
             nextID = this.realm.where(Candidato.class).max("id").intValue() + 1;
         }
 
-        this.realm.beginTransaction();
+        if(this.verifyEmpty()){
+            Toast.makeText(this,"Preencha todos os campos para cadastrar!",Toast.LENGTH_LONG).show();
+        }else{
+            this.realm.beginTransaction();
 
-        Candidato c = new Candidato();
-        c.setId(nextID);
+            Candidato c = new Candidato();
+            c.setId(nextID);
 
-        populate(c);
+            populate(c);
 
-        this.realm.copyToRealm(c);
-        this.realm.commitTransaction();
-        this.realm.close();
+            this.realm.copyToRealm(c);
+            this.realm.commitTransaction();
+            this.realm.close();
 
-        Toast.makeText(this,"Candidato Cadastrado!",Toast.LENGTH_LONG).show();
-        this.finish();
+            Toast.makeText(this,"Candidato Cadastrado!",Toast.LENGTH_LONG).show();
+            this.finish();
+        }
+
+
 
     }
 
@@ -163,4 +175,22 @@ public class ManageCandidatoActivity extends AppCompatActivity {
         this.btnAlterar = findViewById(R.id.btnAlterar);
         this.btnDeletar = findViewById(R.id.btnDeletar);
     }
+
+    private boolean verifyEmpty(){
+        for (int i = 0; i < this.layout.getChildCount(); i++) {
+            View child = this.layout.getChildAt(i);
+
+            if (child instanceof EditText) {
+
+                EditText editText = (EditText) child;
+
+                if(editText.getText().toString().trim().isEmpty() || editText.getText().toString().trim().equals("")){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
 }
