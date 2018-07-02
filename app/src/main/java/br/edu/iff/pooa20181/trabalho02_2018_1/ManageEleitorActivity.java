@@ -93,7 +93,7 @@ public class ManageEleitorActivity extends AppCompatActivity {
         }
 
         if(this.verifyEmpty()){
-            Toast.makeText(this,"Preencha todos os campos para cadastrar!",Toast.LENGTH_LONG).show();
+            launchMessage("Preencha todos os campos para cadastrar!");
         }else{
             this.realm.beginTransaction();
 
@@ -106,7 +106,7 @@ public class ManageEleitorActivity extends AppCompatActivity {
             this.realm.commitTransaction();
             this.realm.close();
 
-            Toast.makeText(this,"Eleitor Cadastrado!",Toast.LENGTH_LONG).show();
+            launchMessage("Eleitor Cadastrado!");
             this.finish();
         }
 
@@ -115,7 +115,7 @@ public class ManageEleitorActivity extends AppCompatActivity {
     private void alterar(){
 
         if(this.verifyEmpty()){
-            Toast.makeText(this,"Preencha todos os campos para cadastrar!",Toast.LENGTH_LONG).show();
+            launchMessage("Preencha todos os campos para alterar!");
         }else{
             realm.beginTransaction();
 
@@ -125,7 +125,7 @@ public class ManageEleitorActivity extends AppCompatActivity {
             realm.commitTransaction();
             realm.close();
 
-            Toast.makeText(this,"Eleitor Atualizado!",Toast.LENGTH_LONG).show();
+            launchMessage("Eleitor Atualizado!");
             this.finish();
         }
 
@@ -138,7 +138,7 @@ public class ManageEleitorActivity extends AppCompatActivity {
         realm.commitTransaction();
         realm.close();
 
-        Toast.makeText(this,"Eleitor Excluído!",Toast.LENGTH_LONG).show();
+        launchMessage("Eleitor Excluído!");
         this.finish();
     }
 
@@ -183,6 +183,8 @@ public class ManageEleitorActivity extends AppCompatActivity {
         return false;
     }
 
-
+    private void launchMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
 }
